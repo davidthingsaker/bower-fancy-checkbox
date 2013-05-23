@@ -1,5 +1,5 @@
 ## Fancy checkboxes 
-define ['mootools'], (FormValidator) ->
+define ['mootools'], () ->
 	class FancyBox 
 		constructor: (@input, @options = {}) ->
 			defaultOptions = 
@@ -11,15 +11,23 @@ define ['mootools'], (FormValidator) ->
 
 			@input.FancyBox = this
 			@div = new Element 'div',
-				class : input.className
+				class : @input.className
 
-			@div.inject input, 'after'
+			@div.inject @input, 'after'
 
 			inputPosition = @input.getStyles 'margin','padding','position','top','left','bottom','right'
+			
 			@div.setStyles inputPosition
+			@input.setStyle 'position', 'absolute'
 
 			@updateCheckbox()
 			@input.addEvent 'change', @updateCheckbox
+
+			##If the input si not in a label add onclick for the DIV
+			if !@input.getParent 'label'
+				@div.addEvent 'click', (event) =>
+					@input.checked = !@input.checked
+					@updateCheckbox()
 
 		updateCheckbox: () =>
 			content = if @input.checked then @options.checkedContent else @options.uncheckedContent
@@ -29,4 +37,3 @@ define ['mootools'], (FormValidator) ->
 				@div.addClass 'checked'
 			else
 				@div.removeClass 'checked'
-	

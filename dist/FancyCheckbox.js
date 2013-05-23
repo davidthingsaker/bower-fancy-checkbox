@@ -2,12 +2,13 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define('FancyCheckbox',['mootools'], function(FormValidator) {
+  define('FancyCheckbox',['mootools'], function() {
     var FancyBox;
 
     return FancyBox = (function() {
       function FancyBox(input, options) {
-        var defaultOptions, inputPosition, key, value;
+        var defaultOptions, inputPosition, key, value,
+          _this = this;
 
         this.input = input;
         this.options = options != null ? options : {};
@@ -24,13 +25,20 @@
         }
         this.input.FancyBox = this;
         this.div = new Element('div', {
-          "class": input.className
+          "class": this.input.className
         });
-        this.div.inject(input, 'after');
+        this.div.inject(this.input, 'after');
         inputPosition = this.input.getStyles('margin', 'padding', 'position', 'top', 'left', 'bottom', 'right');
         this.div.setStyles(inputPosition);
+        this.input.setStyle('position', 'absolute');
         this.updateCheckbox();
         this.input.addEvent('change', this.updateCheckbox);
+        if (!this.input.getParent('label')) {
+          this.div.addEvent('click', function(event) {
+            _this.input.checked = !_this.input.checked;
+            return _this.updateCheckbox();
+          });
+        }
       }
 
       FancyBox.prototype.updateCheckbox = function() {
