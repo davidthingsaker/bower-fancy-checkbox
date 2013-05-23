@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bower Fancy Checkbox</title>
+
+	<link rel="stylesheet" href="../dist/FancyCheckbox.css">
+	<script data-main="main" src="../components/requirejs/require.js"></script>
+	<script>
+		requirejs.config({
+			baseUrl: "",
+			config:{
+
+			},
+			paths:{
+				'domReady' : '../components/requirejs-domready/domReady',
+				'FancyCheckbox' : '../dist/FancyCheckbox'
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>FancyCheckbox</h1>
+	
+	
+	<label>
+		<input type="checkbox" class="fancyCheckbox">
+	</label>
+
+</body>
+</html>

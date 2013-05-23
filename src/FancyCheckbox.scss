@@ -1,0 +1,28 @@
+.fancyCheckbox{
+    display:inline-block;
+}
+
+div.fancyCheckbox{
+    $width: 15px;
+    width:$width;
+    height:$width;
+    /* Set the line height to be the div height to vertically align one line of text */
+    line-height:$width;
+    font-size:$width;
+    text-align:center;
+    vertical-align:middle;
+
+    background:#cccccc;
+    color:#000000;
+}
+
+input.fancyCheckbox{
+    position:absolute;
+    z-index:-10;
+
+    opacity:0;
+}
+
+:focus + div.fancyCheckbox{
+    //Focus state
+}
