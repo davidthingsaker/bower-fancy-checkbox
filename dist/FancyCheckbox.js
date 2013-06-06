@@ -1,15 +1,12 @@
-
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  define('FancyCheckbox',['mootools'], function() {
+  define(['mootools'], function() {
     var FancyBox;
-
     return FancyBox = (function() {
       function FancyBox(input, options) {
         var defaultOptions, inputPosition, key, value,
           _this = this;
-
         this.input = input;
         this.options = options != null ? options : {};
         this.updateCheckbox = __bind(this.updateCheckbox, this);
@@ -43,7 +40,6 @@
 
       FancyBox.prototype.updateCheckbox = function() {
         var content;
-
         content = this.input.checked ? this.options.checkedContent : this.options.uncheckedContent;
         this.div.set('html', content);
         if (this.input.checked) {

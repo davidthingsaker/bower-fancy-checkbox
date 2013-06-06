@@ -1,7 +1,6 @@
 (function() {
   require(['FancyCheckbox', 'domReady!'], function(FancyCheckbox) {
     var input, inputs, _i, _len, _results;
-
     console.log('FancyCheckbox demo load');
     inputs = document.getElements('input.fancyCheckbox');
     _results = [];
