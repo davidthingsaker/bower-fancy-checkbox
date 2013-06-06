@@ -25,10 +25,10 @@ module.exports = (grunt) =>
 					}
 				]
 		
-		regarde:
+		watch:
 			coffee:
 				files: ['src/**/*.coffee']
-				tasks: ['coffee', 'requirejs']
+				tasks: ['coffee']
 
 			scss:
 				files: ['src/**/*.scss']
@@ -57,7 +57,7 @@ module.exports = (grunt) =>
 
 		
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
-	grunt.loadNpmTasks 'grunt-regarde'
+	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-connect'
 	grunt.loadNpmTasks 'grunt-exec'
 	grunt.loadNpmTasks 'grunt-contrib-sass'
@@ -71,7 +71,3 @@ module.exports = (grunt) =>
 	grunt.registerTask 'commit', ['default', 'git']
 	
 	grunt.registerTask 'compile', 'Compile coffeescript and scss', ['coffee', 'sass']
-	grunt.registerTask 'watch', 'Watch coffee and scss files for changes and recompile', () ->
-		## always use force when watching
-		grunt.option 'force', true
-		grunt.task.run ['regarde']
