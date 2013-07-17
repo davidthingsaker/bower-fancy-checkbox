@@ -6,8 +6,8 @@
   
   }
   , "devDependencies": {
-      "requirejs": "git://github.com/jrburke/requirejs"
-    , "requirejs-domready": "git://github.com/thomaswelton/domReady.git"
+      "requirejs": "2.1.*"
+    , "requirejs-domready": "2.0.*"
   }
   , "ignore": [
       "**/.*"
