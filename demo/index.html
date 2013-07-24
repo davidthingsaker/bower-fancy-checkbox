@@ -4,17 +4,18 @@
 	<meta charset="UTF-8">
 	<title>Bower Fancy Checkbox</title>
 
-	<link rel="stylesheet" href="../dist/FancyCheckbox.css">
-	<script data-main="main" src="../lib/requirejs/require.js"></script>
+	<link rel="stylesheet" href="FancyCheckbox.css">
+	<script data-main="main" src="components/requirejs/require.js"></script>
 	<script>
 		requirejs.config({
 			baseUrl: "",
+			urlArgs: "bust=" + (new Date()).getTime(),
 			config:{
 
 			},
 			paths:{
-				'domReady' : '../lib/requirejs-domready/domReady',
-				'FancyCheckbox' : '../dist/FancyCheckbox'
+				'domReady' : 'components/requirejs-domready/domReady',
+				'FancyCheckbox' : 'FancyCheckbox'
 			}
 		});
 	</script>
