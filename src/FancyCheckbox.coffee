@@ -12,10 +12,13 @@ define ['mootools'], () ->
 			@input.FancyBox = this
 			@div = new Element 'div',
 				class : @input.className
+				styles:
+					position: 'relative'
+					zIndex: 100
 
 			@div.inject @input, 'after'
 
-			inputPosition = @input.getStyles 'margin','padding','position','top','left','bottom','right'
+			inputPosition = @input.getStyles 'margin','padding','top','left','bottom','right'
 			
 			@div.setStyles inputPosition
 			@input.setStyle 'position', 'absolute'
